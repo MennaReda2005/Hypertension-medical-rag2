@@ -577,12 +577,6 @@ The main goals of this project are to:
 
 ---
 
-## 🌐 Live Demo
-
-🔗 **[Try the Hypertension Medical RAG System](https://hypertension-medical-rag2-fqsuvmgpphcgkqjm4qttqc.streamlit.app/)**
-
-Experience the system directly through the deployed Streamlit application.
-
 
 👩‍💻 Author
 
@@ -601,3 +595,10 @@ This project was developed as an educational/research implementation of Retrieva
 
 
 ⭐ If you find this project useful, consider giving the repository a star!
+
+## 🌐 Live Demo
+
+🔗 **[Try the Hypertension Medical RAG System](https://hypertension-medical-rag2-fqsuvmgpphcgkqjm4qttqc.streamlit.app/)**
+
+Experience the system directly through the deployed Streamlit application.
+
