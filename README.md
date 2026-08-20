@@ -1,10 +1,12 @@
-# 🩺 Hypertension Medical RAG
+<h1 align="center">🩺 Hypertension Medical RAG</h1>
 
-> **Evidence-Based Medical Question Answering System for Hypertension**
+<h3 align="center">
+Evidence-Based Medical Question Answering System for Hypertension
+</h3>
 
-An AI-powered **Retrieval-Augmented Generation (RAG)** system designed to answer hypertension-related medical questions using a curated collection of medical documents.
-
-The system combines **semantic search, document retrieval, context-aware generation, and confidence checking** to provide grounded answers based on the available medical knowledge base.
+<p align="center">
+An AI-powered Retrieval-Augmented Generation (RAG) system designed to answer hypertension-related medical questions using a curated medical knowledge base.
+</p>
 
 ---
 
@@ -12,7 +14,7 @@ The system combines **semantic search, document retrieval, context-aware generat
 
 Medical information requires accuracy, reliable evidence, and controlled generation.
 
-**Hypertension Medical RAG** implements a complete Retrieval-Augmented Generation pipeline:
+**Hypertension Medical RAG** implements a complete Retrieval-Augmented Generation pipeline that combines semantic search, document retrieval, context-aware generation, and confidence checking to provide grounded answers based on the available medical knowledge base.
 
 ```text
 User Question
@@ -30,12 +32,13 @@ LLM Generation
 Confidence / Relevance Check
       ↓
 Evidence-Based Answer
+```
 
 The system operates within a defined hypertension knowledge scope and avoids generating unsupported answers when sufficient evidence cannot be retrieved.
 
 ---
 
-✨ Key Features
+## ✨ Key Features
 
 - 🩺 Hypertension-focused medical question answering
 - 🔎 Semantic document retrieval
@@ -52,8 +55,9 @@ The system operates within a defined hypertension knowledge scope and avoids gen
 
 ---
 
-🏗️ System Architecture
+## 🏗️ System Architecture
 
+```text
                  ┌──────────────────┐
                  │   Medical PDFs   │
                  └────────┬─────────┘
@@ -102,15 +106,17 @@ User Question ────────────┤
                           │
                           ▼
                    Final Answer
+```
 
 ---
 
-🔄 RAG Pipeline
+## 🔄 RAG Pipeline
 
-1. Document Ingestion
+### 1. Document Ingestion
 
 Medical documents are loaded and processed before being stored in the knowledge base.
 
+```text
 Medical Documents
        ↓
 Document Loading
@@ -124,17 +130,19 @@ Chunking
 Embedding Generation
        ↓
 Vector Database
+```
 
 ---
 
-2. Document Chunking
+### 2. Document Chunking
 
-The system uses Recursive Character Text Splitting.
+The system uses **Recursive Character Text Splitting**.
 
 Instead of blindly cutting documents at arbitrary positions, the splitter recursively attempts to preserve meaningful text boundaries.
 
 This helps maintain contextual relationships within medical content.
 
+```text
 Medical Document
        ↓
 Paragraphs
@@ -142,29 +150,33 @@ Paragraphs
 Sentences
        ↓
 Contextual Chunks
+```
 
 ---
 
-3. Embeddings
+### 3. Embeddings
 
 Each document chunk is converted into a numerical vector representation using an embedding model.
 
+```text
 Text Chunk
     ↓
 Embedding Model
     ↓
 Vector Representation
+```
 
 The user's query is also converted into an embedding, allowing the system to identify semantically similar medical content.
 
 ---
 
-4. Vector Database
+### 4. Vector Database
 
-The generated embeddings are stored in ChromaDB.
+The generated embeddings are stored in **ChromaDB**.
 
 The vector database allows efficient retrieval of chunks that are semantically related to the user's question.
 
+```text
 Query
   ↓
 Query Embedding
@@ -172,10 +184,11 @@ Query Embedding
 Similarity Search
   ↓
 Top Relevant Chunks
+```
 
 ---
 
-🔎 Retrieval
+## 🔎 Retrieval
 
 The retrieval component searches the vector database for the most relevant medical chunks.
 
@@ -185,10 +198,11 @@ This helps ground the LLM response in the project's medical knowledge base rathe
 
 ---
 
-🤖 Generation
+## 🤖 Generation
 
 After retrieving relevant evidence, the system constructs a context-aware prompt for the LLM.
 
+```text
 User Question
       +
 Retrieved Medical Context
@@ -196,12 +210,13 @@ Retrieved Medical Context
 Gemini
       ↓
 Grounded Answer
+```
 
 The model is instructed to prioritize the retrieved evidence and avoid unsupported claims.
 
 ---
 
-🛡️ Confidence & Relevance Check
+## 🛡️ Confidence & Relevance Check
 
 The system includes a confidence/relevance checking layer.
 
@@ -213,37 +228,31 @@ This provides an additional safety layer for the medical RAG pipeline.
 
 ---
 
-🎯 Scope Control
+## 🎯 Scope Control
 
 The system is designed around a defined hypertension knowledge scope.
 
-✅ In-Scope Examples
+### ✅ In-Scope Examples
 
-What is hypertension?
+- What is hypertension?
+- What are the symptoms of high blood pressure?
+- What are common risk factors for hypertension?
+- How is hypertension diagnosed?
+- What lifestyle changes can help control blood pressure?
 
-What are the symptoms of high blood pressure?
+### ❌ Out-of-Scope Examples
 
-What are common risk factors for hypertension?
-
-How is hypertension diagnosed?
-
-What lifestyle changes can help control blood pressure?
-
-❌ Out-of-Scope Examples
-
-What is the capital of France?
-
-How do I train a computer vision model?
-
-What is the weather today?
+- What is the capital of France?
+- How do I train a computer vision model?
+- What is the weather today?
 
 The system should avoid treating unrelated questions as medical questions supported by the hypertension knowledge base.
 
 ---
 
-🖥️ User Interface
+## 🖥️ User Interface
 
-The project includes an interactive Streamlit interface.
+The project includes an interactive **Streamlit** interface.
 
 Users can:
 
@@ -252,8 +261,9 @@ Users can:
 - Generate an evidence-grounded answer
 - Interact with the RAG system through a web interface
 
-Example:
+### Example
 
+```text
 User
  ↓
 Medical Question
@@ -267,11 +277,13 @@ Gemini
 Confidence Check
  ↓
 Final Answer
+```
 
 ---
 
-📁 Project Structure
+## 📁 Project Structure
 
+```text
 Hypertension-medical-rag2/
 │
 ├── data/
@@ -299,119 +311,147 @@ Hypertension-medical-rag2/
 ├── requirements.txt
 ├── README.md
 └── app.py
+```
 
-«Note: ".env", generated vector stores, cache files, and other sensitive/generated artifacts should not be committed to GitHub.»
-
----
-
-⚙️ Technology Stack
-
-Component| Technology
-Language| Python
-RAG Framework| LangChain
-Vector Database| ChromaDB
-Embeddings| Sentence Transformers
-LLM| Google Gemini
-Interface| Streamlit
-Document Processing| PDF/Text Processing
-Version Control| Git & GitHub
+> **Note:** `.env`, generated vector stores, cache files, and other sensitive/generated artifacts should not be committed to GitHub.
 
 ---
 
-🔧 Installation
+## ⚙️ Technology Stack
 
-1. Clone the Repository
+| Component | Technology |
+|---|---|
+| Language | Python |
+| RAG Framework | LangChain |
+| Vector Database | ChromaDB |
+| Embeddings | Sentence Transformers |
+| LLM | Google Gemini |
+| Interface | Streamlit |
+| Document Processing | PDF / Text Processing |
+| Version Control | Git & GitHub |
 
+---
+
+## 🔧 Installation
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/MennaReda2005/Hypertension-medical-rag2.git
 cd Hypertension-medical-rag2
+```
 
-2. Create a Virtual Environment
+### 2. Create a Virtual Environment
 
-Windows
+#### Windows
 
+```bash
 python -m venv venv
 venv\Scripts\activate
+```
 
-Linux / macOS
+#### Linux / macOS
 
+```bash
 python3 -m venv venv
 source venv/bin/activate
+```
 
-3. Install Dependencies
+### 3. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 ---
 
-🔐 Environment Variables
+## 🔐 Environment Variables
 
-Create a ".env" file in the project root:
+Create a `.env` file in the project root:
 
+```env
 GOOGLE_API_KEY=your_google_api_key_here
+```
 
-⚠️ Never commit the real API key to GitHub.
+⚠️ **Never commit the real API key to GitHub.**
 
-The ".env" file should remain in ".gitignore".
+The `.env` file should remain in `.gitignore`.
 
 ---
 
-📚 Medical Documents
+## 📚 Medical Documents
 
 Place the medical documents used by the system inside:
 
+```text
 data/documents/
+```
 
 The ingestion pipeline processes the documents, splits them into chunks, generates embeddings, and stores them in ChromaDB.
 
 ---
 
-▶️ Running the Application
+## ▶️ Running the Application
 
 Start the Streamlit application:
 
+```bash
 streamlit run app.py
+```
 
 Then open the local Streamlit URL displayed in the terminal.
 
 ---
 
-🧪 Testing
+## 🧪 Testing
 
 The system can be tested using different question categories.
 
-1. In-Scope Medical Question
+### 1. In-Scope Medical Question
 
+```text
 What are the common risk factors for hypertension?
+```
 
-Expected behavior:
+**Expected behavior:**
 
+```text
 Retrieve relevant medical evidence
         ↓
 Generate an evidence-grounded answer
+```
 
-2. Unrelated Medical Question
+### 2. Unrelated Medical Question
 
+```text
 What are the symptoms of asthma?
+```
 
-Expected behavior:
+**Expected behavior:**
 
+```text
 Question outside the hypertension knowledge scope
         ↓
 Avoid unsupported retrieval/generation
+```
 
-3. General Non-Medical Question
+### 3. General Non-Medical Question
 
+```text
 What is machine learning?
+```
 
-Expected behavior:
+**Expected behavior:**
 
+```text
 Question outside the system scope
         ↓
 Reject / redirect appropriately
+```
 
 ---
 
-🧠 Why RAG?
+## 🧠 Why RAG?
 
 A standard LLM may generate answers using knowledge learned during pretraining.
 
@@ -422,18 +462,21 @@ For medical applications, this can introduce risks such as:
 - Outdated information
 - Lack of traceable evidence
 
-RAG introduces an external retrieval step:
+RAG introduces an external retrieval step.
 
-Traditional LLM
+### Traditional LLM
 
+```text
 Question
    ↓
 LLM
    ↓
 Answer
+```
 
-Medical RAG
+### Medical RAG
 
+```text
 Question
    ↓
 Retrieve Medical Evidence
@@ -443,16 +486,17 @@ Relevant Context
 LLM
    ↓
 Grounded Answer
+```
 
 This architecture helps keep responses aligned with the project's available medical knowledge.
 
 ---
 
-🔒 Medical Safety
+## 🔒 Medical Safety
 
 This project is an educational and research-oriented AI system.
 
-It is not intended to replace professional medical advice, diagnosis, or treatment.
+It is **not intended to replace professional medical advice, diagnosis, or treatment**.
 
 The system should be used as an information-support tool rather than as a clinical decision-making system.
 
@@ -460,7 +504,7 @@ Users should consult qualified healthcare professionals for personal medical dec
 
 ---
 
-🚧 Current Limitations
+## 🚧 Current Limitations
 
 - Response quality depends on the quality of the medical documents.
 - Retrieval errors can affect final answers.
@@ -471,9 +515,9 @@ Users should consult qualified healthcare professionals for personal medical dec
 
 ---
 
-🚀 Future Improvements
+## 🚀 Future Improvements
 
-🔹 Advanced Retrieval
+### 🔹 Advanced Retrieval
 
 - Hybrid search combining semantic and keyword retrieval
 - Re-ranking retrieved chunks
@@ -481,14 +525,14 @@ Users should consult qualified healthcare professionals for personal medical dec
 - Query expansion
 - Multi-query retrieval
 
-🔹 Medical Knowledge
+### 🔹 Medical Knowledge
 
 - Expand the knowledge base with additional authoritative guidelines
 - Add guideline versioning
 - Improve document preprocessing
 - Add source-level metadata
 
-🔹 Evaluation
+### 🔹 Evaluation
 
 Implement a dedicated RAG evaluation framework including:
 
@@ -500,7 +544,7 @@ Implement a dedicated RAG evaluation framework including:
 - Answer Relevance
 - Retrieval Latency
 
-🔹 Safety
+### 🔹 Safety
 
 Future versions can include:
 
@@ -511,7 +555,7 @@ Future versions can include:
 - High-risk question detection
 - Human-in-the-loop review
 
-🔹 User Experience
+### 🔹 User Experience
 
 - Conversation history
 - Source/document display
@@ -522,10 +566,11 @@ Future versions can include:
 
 ---
 
-📊 Evaluation Strategy
+## 📊 Evaluation Strategy
 
 A robust evaluation pipeline can be organized into three levels:
 
+```text
                  RAG Evaluation
                        │
         ┌──────────────┼──────────────┐
@@ -536,15 +581,17 @@ A robust evaluation pipeline can be organized into three levels:
    Precision@K      Faithfulness     Scope
    Recall@K         Relevance        Guardrails
    MRR              Accuracy         Abstention
+```
 
 This separates retrieval quality from generation quality, making it easier to identify where errors originate.
 
 ---
 
-🔬 Future Research Direction
+## 🔬 Future Research Direction
 
 The project can be extended from a basic medical RAG system into a more advanced evidence-backed medical reasoning architecture:
 
+```text
 Patient / User Query
         ↓
 Question Understanding
@@ -558,12 +605,13 @@ Knowledge Synthesis
 Safety & Confidence Checks
         ↓
 Evidence-Grounded Response
+```
 
 This provides a foundation for building more reliable and transparent medical AI systems.
 
 ---
 
-📌 Project Goals
+## 📌 Project Goals
 
 The main goals of this project are to:
 
@@ -577,28 +625,42 @@ The main goals of this project are to:
 
 ---
 
+## 👩‍💻 Author
 
-👩‍💻 Author
-
-Menna Reda
+**Menna Reda**
 
 AI Engineer | Machine Learning | Deep Learning | NLP | Generative AI
 
-GitHub: "@MennaReda2005" (https://github.com/MennaReda2005)
+GitHub: [@MennaReda2005](https://github.com/MennaReda2005)
 
 ---
 
-⭐ Acknowledgment
+## ⭐ Acknowledgment
 
-This project was developed as an educational/research implementation of Retrieval-Augmented Generation for medical question answering, with a focus on hypertension-related information.
+This project was developed as an educational and research implementation of Retrieval-Augmented Generation for medical question answering, with a focus on hypertension-related information.
 
+---
 
+## ⭐ Support the Project
 
-⭐ If you find this project useful, consider giving the repository a star!
+If you find this project useful, consider giving the repository a ⭐ star!
 
-## 🌐 Live Demo
+---
 
-🔗 **[Try the Hypertension Medical RAG System](https://hypertension-medical-rag2-fqsuvmgpphcgkqjm4qttqc.streamlit.app/)**
+<h1 align="center">🌐 Live Demo</h1>
 
-Experience the system directly through the deployed Streamlit application.
+<p align="center">
+  <a href="https://hypertension-medical-rag2-fqsuvmgpphcgkqjm4qttqc.streamlit.app/">
+    <strong>🚀 Try the Hypertension Medical RAG System</strong>
+  </a>
+</p>
 
+<p align="center">
+Experience the deployed application and test the RAG system directly.
+</p>
+
+<p align="center">
+  <a href="https://hypertension-medical-rag2-fqsuvmgpphcgkqjm4qttqc.streamlit.app/">
+    🔗 <strong>Launch Live Demo</strong>
+  </a>
+</p>
