@@ -577,6 +577,13 @@ The main goals of this project are to:
 
 ---
 
+## 🌐 Live Demo
+
+🔗 **[Try the Hypertension Medical RAG System](https://hypertension-medical-rag2-fqsuvmgpphcgkqjm4qttqc.streamlit.app/)**
+
+Experience the system directly through the deployed Streamlit application.
+
+
 👩‍💻 Author
 
 Menna Reda
